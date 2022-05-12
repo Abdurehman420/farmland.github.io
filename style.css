@@ -1,0 +1,543 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+:root{
+
+
+    
+
+    --primarycolor: white;
+
+    --secondarycolor:#D46128 ; 
+}
+
+html{
+   
+    box-sizing: border-box;
+}
+body{
+    
+    
+    
+    color: var(--primarycolor);
+    font-weight: 400;
+    
+}
+
+.model{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    width: 80%;
+    background: linear-gradient(to right,#4B5463,#343e4aa2 ) ;
+   margin: auto;
+    border-radius: 5px;
+
+    display: none;
+    transition: all 300ms;
+}
+.container{
+
+    
+width: 100%;
+height: 100vh;
+    background-color: rgba(0, 0, 0, 0.363);
+    filter: blur(10px);
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    
+}
+.container.open{
+    display: block;
+}
+
+.model.open{
+    display: block;
+    
+}
+
+.modelHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: url(pp.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+    background-size: cover;
+    position: relative;
+height: 20vh;
+z-index: -3;
+}
+.modelHeader::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.562);
+    border-radius: 5px;
+
+    
+}
+.modelHeader .left,
+.modelHeader .right{
+    position: relative;
+    z-index: 5;
+}
+
+.modelHeader .left img{
+    width: 50px;
+    border-radius: 50%;
+    margin: 0 5px;
+   
+}
+
+.crossBtn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    
+}
+.fa-xmark {
+   font-size: 20px;
+   color: var(--primarycolor);
+  transition: all 200ms;
+ 
+ 
+}
+.crossBtn:hover .fa-xmark{
+    color: var(--secondarycolor);
+}
+
+.crossBtn::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    height: 30px;
+    width:30px;
+    border-radius: 50%;
+    background-color: black;
+    z-index: -1;
+}
+
+
+.mainHeading{
+    background-color: var(--secondarycolor);
+    width: 15%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 10px;
+    margin: 15px 0;
+    font-size: 17px;
+}
+
+.wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 4%;
+    background-color: #37414B;
+    border-radius: 5px;
+    padding: 4px 15px;
+}
+.modelMain ul li{
+    margin: 20px 20px;
+    
+}
+.modelMain{
+    max-height: 70vh;
+overflow-y: auto;
+
+}
+.wrapLeft{
+
+    display: flex;
+    flex-direction: column;
+   margin-top: -80px;
+
+
+}
+.wrapLeft img{
+    width: 30px;
+}
+.wrapLeft p{
+    margin: 10px 0;
+    font-size: 13px;
+}
+
+.users img{
+    border-radius: 50%;
+}
+.users img:first-child{
+    margin-right: -15px;
+}
+.users img:last-child{
+    margin-left: -15px;
+}
+.users img:nth-child(2){
+    z-index: 50;
+    position: relative;
+}
+.usersone img:last-child{
+    margin-left: 2px;
+    
+}
+
+.wrapRight ul{
+    display: flex;
+    list-style: none;
+}
+.wrapRight ul li{
+    padding: 0 40px;
+    font-size: 13px;
+}
+.wrapRight ul li p{
+    position: relative;
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// CODE FOR TOOLTIP  */
+.wrapRight ul li p::before{
+    content: attr(data-label);
+    
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    
+    width: 100%;
+    white-space: nowrap;
+    font-size: 14px;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 5px;
+    background-color:#4B5463;
+    color: white;
+    display: none;
+}
+.wrapRight ul li p::after{
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 60%;
+    
+    
+    height: 15px;
+    transform: rotate(45deg);
+    width: 15px;
+    background-color:#4B5463;
+    display: none;
+}
+.wrapRight ul li p:hover::before,
+.wrapRight ul li p:hover::after{
+    display: block;
+}
+
+#wrap .wrapRight ul li:first-child{
+    flex-direction: column;
+    text-align: center;
+
+}
+.wrapRight ul li:last-child{
+    padding-right: 5px;
+
+}
+
+.wrapRight ul li h4{
+   margin: 10px 0;
+  color: rgba(255, 255, 255, 0.61);
+  font-weight: 400;
+  font-size: 14px;
+}
+.wrapBtn{
+    position: relative;
+    margin-top:20px ;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+}
+.wrapBtn button{
+  
+   font-size: 13px;
+   
+   background: none;
+   border: 1px solid var(--secondarycolor);
+   color: var(--primarycolor);
+   padding: 10px 35px;
+   border-radius: 3px;
+   cursor: pointer;
+   transition: all 200ms;
+}
+.wrapBtn button:hover{
+    background-color: var(--secondarycolor);
+    color: white;
+}
+#wrap .wrapBtn button{
+    border: 1px solid rgba(255, 255, 255, 0.226);
+    color: rgba(255, 255, 255, 0.315);
+}
+#wrap .wrapBtn button:hover{
+    background: none; 
+    color: rgba(255, 255, 255, 0.315);
+}
+
+.modelMain ul{
+    list-style: none;
+
+}
+
+.wrap:last-child img{
+    width: 20px;
+    border-radius: 50%;
+}
+
+.wrap:last-child .wrapRight ul{
+
+display: flex;
+justify-content: space-between;
+
+}
+
+#wrap .wrapRight ul li{
+    padding: 0;
+}
+#wrap{
+    display: block;
+    
+}
+
+
+#wrap .wrapRight li:first-child{
+    margin-top: 25px;
+}
+.wrap:last-child .wrapRight li:first-child p{
+    margin-top: 6px;
+}
+
+.modelMain::-webkit-scrollbar {
+    width: 15px;
+}
+.modelMain::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 20px 20px var(--secondarycolor);
+    border: solid 2px transparent;
+    border-radius: 50px;
+}
+
+
+
+
+.popUpBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.popUpBtn.close{
+    display: none;
+}
+.popUpBtn button{
+    font-size: 15px;
+   
+   background: none;
+   border: 1px solid var(--secondarycolor);
+   color:black;
+   background-color: var(--secondarycolor);
+   padding: 10px 35px;
+   border-radius: 3px;
+   cursor: pointer;
+   transition: all 200ms;
+
+}
+
+
+
+@media  screen and (min-width:1600px) {
+
+
+     .wrapLeft p {
+        font-size: 15px;
+    }
+.wrapRight ul li {
+    
+    font-size: 15px;
+
+}
+.wrapRight ul li h4 {
+    
+    font-size: 16px;
+}
+}
+
+
+
+@media screen and (max-width:1153px){
+
+
+
+.model{
+    width: 90%;
+}
+
+}
+@media screen and (max-width:976px){
+
+.model{
+    width: 95%;
+}
+ .wrapRight ul li{
+     margin: 10px 5px;
+ }
+.wrapRight ul li{
+    padding: 0 15px;
+}
+
+}
+
+
+@media screen and (max-width:765px){
+    .model{
+        width:100%;
+    }
+
+    
+}
+
+
+
+@media screen and (max-width:686px){
+
+.wrap{
+    flex-direction: column;
+    
+}
+
+.model{
+
+    border-radius: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0,0);
+    width: 100%;
+}
+
+
+.modelHeader::before{
+    border-radius: 0px !important;
+}
+.modelMain{
+    max-height: 80vh;
+
+
+}
+.wrapLeft{
+    text-align: center;
+    margin-top: 0;
+}
+
+.wrapRight {
+    width: 100%;
+}
+.wrapRight ul{
+    flex-direction: column;
+}
+.wrapRight ul li{
+   display: flex;
+   justify-content: space-between;
+   padding: 0px 0;
+   margin: 5px 0px;
+   align-items:center ;
+   font-size: 13px;
+}
+.wrapRight ul li h4{
+   
+   font-size: 14px;
+}
+.wrapRight ul li p{
+   
+   padding: 2px 0;
+}
+.wrapBtn{
+    justify-content: center;
+    
+}
+.wrapBtn button{
+    width: 100%;
+    
+}
+#wrap .wrapRight ul li:first-child{
+    justify-content: flex-start;
+    flex-direction: column;
+    align-self: flex-start;
+    
+}
+#wrap .wrapRight ul li:first-child div{
+    margin: 8px 0;
+    
+}
+
+
+.wrapRight ul li p::before{
+    
+    left: -40px;
+   
+    
+}
+.wrapRight ul li p:hover::after,
+.wrapRight ul li p:hover::before{
+    display: none;
+    
+   
+   
+    
+}
+#wrap .wrapBtn button{
+    border: 1px solid var(--secondarycolor) !important;
+    color: white;
+}
+
+#wrap .wrapBtn button:hover{
+    background: var(--secondarycolor); 
+    color: white;
+}
+.mainHeading{
+    
+    width: 30%;
+}
+
+
+}
+
+
+@media screen and (max-width:520px){
+
+    .mainHeading{
+    
+        width: 35%;
+    }
+
+
+    .modelHeader{
+       
+        padding: 20px 15px;
+          
+    }
+   
+
+}
